@@ -8,3 +8,6 @@ shudownDockersAndRemoveImages.sh
 .machine_specific_env
 *.sql
 *.tar.gz
+*.pem
+*.log
+.env

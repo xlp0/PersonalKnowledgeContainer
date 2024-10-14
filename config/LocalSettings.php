@@ -28,7 +28,7 @@ $wgSitename = "PKC";
 $wgScriptPath = "";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "https://www.pkc-dev.org";
+$wgServer = "http://localhost:32001";
 
 ## The URL path to static resources (images, scripts, etc.)
 $wgResourceBasePath = $wgScriptPath;
@@ -52,6 +52,7 @@ $wgEmailAuthentication = true;
 ## Database settings
 $wgDBtype = "mysql";
 $wgDBserver = "database";
+# $wgDBserver = "192.168.100.70";
 $wgDBname = "my_wiki";
 $wgDBuser = "wikiuser";
 $wgDBpassword = "example";
@@ -174,12 +175,8 @@ wfLoadExtension( 'TextExtracts' );
 wfLoadExtension( 'TitleBlacklist' );
 wfLoadExtension( 'VisualEditor' );
 wfLoadExtension( 'WikiEditor' );
-#
-#
-# Require user login to use mediawiki
-$wgGroupPermissions['*']['read'] = false;
-#
-#
+
+
 # End of automatically generated settings.
 # Add more configuration options below.
 # 
@@ -329,41 +326,26 @@ wfLoadExtension( 'TemplateWizard' );
 wfLoadExtension( 'OpenIDConnect' );
 wfLoadExtension( 'PluggableAuth' );
 # http://localhost:32060/auth/realms/pkc-realm/.well-known/openid-configuration --> check here
-$wgOpenIDConnect_Config['#KCK_SUBDOMAIN/auth/realms/pkc-realm/'] = [
+$wgOpenIDConnect_Config['http://kck.pkc.local:8080/auth/realms/pkc-realm/'] = [
   'clientID' => 'pkc-client',
-  'clientsecret' => 'd9ecdca8-ad69-4322-9452-ff725898eb03',
+  'clientsecret' => 'sl8259AJutrN672QlHBRd6lnTizJ8iVk',
   'scope' => [ 'openid', 'profile', 'email' ]
 ];
 $wgGroupPermissions['*']['autocreateaccount'] = true;
 $wgPluggableAuth_EnableLocalLogin = true;
 #
 wfLoadExtension( 'Matomo' );
-$wgMatomoURL = "mtm.pkc-dev.org";
+$wgMatomoURL = "mtm.pkc.local";
 $wgMatomoIDSite = "1";
 #
+# Enable String Functions
+$wgPFEnableStringFunctions = true;
 #
 # Interactive Timeline Extensions
 wfLoadExtension("InteractiveTimeline");
-#
-# Semantic Result Format
-$wgAllowCiteGroups = true; 
-$wgCiteBookReferencing = true;
-wfLoadExtension( 'SemanticResultFormats' );
-$srfgFormats = [ 'icalendar', 'vcard', 'bibtex', 'calendar', 'eventcalendar', 'eventline', 'timeline',
-                                'outline', 'gallery', 'jqplotchart', 'jqplotseries', 'sum', 'average', 'min', 'max', 'median', 
-                                'product', 'tagcloud', 'valuerank', 'array', 'tree', 'ultree', 'oltree', 'd3chart', 'latest', 'earliest', 
-                                'filtered', 'slideshow', 'timeseries', 'sparkline', 
-                                'listwidget', 'pagewidget', 'dygraphs', 'media', 'datatables' ];
-#
-#
-#
-# Enable User Protect Extensions
-# wfLoadExtension( 'UserProtect' );
-#
 # Enable for debugging
 // $wgShowExceptionDetails = true;
 // $wgShowDBErrorBacktrace = true;
 // $wgShowSQLErrors = true;
 // $wgDebugToolbar = true;
 // $wgDevelopmentWarnings = true;
-$wgDeprecationReleaseLimit = '1.x';

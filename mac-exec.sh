@@ -28,17 +28,17 @@ function prep_nginx {
 function prep_local {
 
     # check if we already have mountpoint file
-    if [ ! -f ./mountpoint.tar.gz ]; then
-        # download mountpoint from pkc.pub
-        echo "Download mountpoint"
-        wget -O mountpoint.tar.gz http://res.pkc.pub/mountpoint-mac.tar.gz
-    fi     
+    # if [ ! -f ./mountpoint-mac.tar.gz ]; then
+    #     # download mountpoint from pkc.pub
+    #     echo "Download mountpoint"
+    #     wget -O mountpoint.tar.gz http://res.pkc.pub/mountpoint-mac.tar.gz
+    # fi     
 
-    # check if folder is already exists
-    if [ ! -e ./mountpoint ]; then
-        echo "Extracting mountpoint"
-        tar -xvf mountpoint.tar.gz > /dev/null 2>&1
-    fi
+    # # check if folder is already exists
+    # if [ ! -e ./mountpoint ]; then
+    #     echo "Extracting mountpoint"
+    #     tar -xvf mountpoint.tar.gz > /dev/null 2>&1
+    # fi
 
     # copy LocalSettings.php
     echo "Applying Localhost setting .... "
@@ -166,9 +166,9 @@ if [ -f .env ]; then
         echo ""
         echo "If the browser is not automatically open, please copy-paste below URL into "
         echo "your browser "
-        echo "http://pkc.local"
+        echo "http://localhost:32001"
         echo "---------------------------------------------------------------------------"
-        open http://pkc.local
+        open http://localhost:32001
 
     } else {
 

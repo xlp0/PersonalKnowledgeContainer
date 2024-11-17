@@ -22,3 +22,8 @@ The default credentials to access all the service will be displayed at the end o
 
 ## More Info
 Please visit https://www.pkc.pub/index.php/PKC_Complete_Installation_Process for more information.
+
+# Temporary Workaround 
+Due to an issue with Semantic_MediaWiki, please run the following command in terminal:
+
+docker exec -it xlp_mediawiki php /var/www/html/maintenance/update.php
